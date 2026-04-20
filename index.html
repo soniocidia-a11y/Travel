@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="mobile-web-app-capable" content="yes" />
-<title>우리의 여행 · Voyage</title>
+<title>우리의 여행 · Hae Ki Vel</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,7 @@
 </script>
 
 <!-- PWA manifest (inline via data URI) -->
-<link rel="manifest" href='data:application/manifest+json;charset=utf-8,{"name":"우리의 여행","short_name":"Voyage","start_url":".","display":"standalone","background_color":"%23faf9f7","theme_color":"%23ff5a3d","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 rx=%22112%22 fill=%22%23ff5a3d%22/><text x=%22256%22 y=%22340%22 font-size=%22280%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22serif%22 font-style=%22italic%22>V</text></svg>","sizes":"512x512","type":"image/svg+xml"}]}' />
+<link rel="manifest" href='data:application/manifest+json;charset=utf-8,{"name":"우리의 여행","short_name":"Hae Ki Vel","start_url":".","display":"standalone","background_color":"%23faf9f7","theme_color":"%23ff5a3d","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 rx=%22112%22 fill=%22%23ff5a3d%22/><text x=%22256%22 y=%22340%22 font-size=%22280%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22serif%22 font-style=%22italic%22>V</text></svg>","sizes":"512x512","type":"image/svg+xml"}]}' />
 
 <style>
   :root {
@@ -1322,7 +1322,7 @@
 <div id="app" style="display:none;">
   <header>
     <div class="header-top">
-      <span class="trip-label"><span class="trip-label-dot"></span>VOYAGE · <span id="userName"></span></span>
+      <span class="trip-label"><span class="trip-label-dot"></span>Hae Ki Vel · <span id="userName"></span></span>
       <span class="sync-indicator">
         <span class="sync-dot" id="syncDot"></span>
         <span id="syncText">synced</span>
@@ -1526,7 +1526,7 @@ const state = {
   lastSyncData: null,
 };
 
-const DEVICE_KEY = 'voyage_device';
+const DEVICE_KEY = 'Hae Ki Vel_device';
 function getDeviceId() {
   let d = localStorage.getItem(DEVICE_KEY);
   if (!d) {
@@ -1537,7 +1537,7 @@ function getDeviceId() {
 }
 
 function saveLocal() {
-  localStorage.setItem('voyage_session', JSON.stringify({
+  localStorage.setItem('Hae Ki Vel_session', JSON.stringify({
     tripId: state.tripId,
     tripCode: state.tripCode,
     userName: state.userName,
@@ -1546,12 +1546,12 @@ function saveLocal() {
 
 function loadLocal() {
   try {
-    return JSON.parse(localStorage.getItem('voyage_session') || 'null');
+    return JSON.parse(localStorage.getItem('Hae Ki Vel_session') || 'null');
   } catch { return null; }
 }
 
 function clearLocal() {
-  localStorage.removeItem('voyage_session');
+  localStorage.removeItem('Hae Ki Vel_session');
 }
 
 /* =========================================================
@@ -2282,7 +2282,7 @@ function copyTripCode() {
   const code = state.trip.code;
   const text = `${state.trip.name}에 초대합니다 🌱\n코드: ${code}`;
   if (navigator.share) {
-    navigator.share({ title: 'Voyage', text }).catch(()=>{});
+    navigator.share({ title: 'Hae Ki Vel', text }).catch(()=>{});
   } else if (navigator.clipboard) {
     navigator.clipboard.writeText(code);
     toast('코드 복사됨: ' + code);
